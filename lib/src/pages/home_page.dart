@@ -12,12 +12,14 @@ class HomePage extends StatelessWidget{
         centerTitle: true,
         elevation: 1.0,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Número de veces que as pulsado el botón', style: miestilo),
-          Text('0', style: miestilo),
-        ],
+      body: Center(
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Número de veces que has pulsado el botón', style: miestilo),
+            Text('0', style: miestilo),
+          ],
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
