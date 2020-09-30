@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+//import 'package:flutter/rendering.dart';
 
 class ContadorPage extends StatefulWidget {
 
@@ -18,7 +18,7 @@ class ContadorPageState extends State<ContadorPage>{
       appBar: AppBar(
         title: Text('Título'),
         centerTitle: true,
-        elevation: 1.0,
+        elevation: 2.0,
       ),
       body: Center(
         child:Column(
@@ -29,16 +29,24 @@ class ContadorPageState extends State<ContadorPage>{
           ],
         )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          //print ('Hola Mundo');
-          setState(() {
-            _contador++;  
-          });
-          
-        },
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: _crearbotones(),
     );
   }
+
+  Widget _crearbotones(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        SizedBox(width: 30,),
+        FloatingActionButton(onPressed: inicializar, child: Icon(Icons.exposure_zero),),
+        Expanded(child: SizedBox()),
+        FloatingActionButton(onPressed: restar, child: Icon(Icons.remove),),
+        FloatingActionButton(onPressed: sumar, child: Icon(Icons.add),),
+      ],
+    );
+  }
+
+  void inicializar (){setState(() {_contador=0;});}
+  void restar (){setState(() {_contador--;});}
+  void sumar (){setState(() {_contador++;});}
 }
